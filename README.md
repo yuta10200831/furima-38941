@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-
+- has_many :cards
 
 ## items テーブル
 
@@ -26,14 +26,14 @@
 | situation_id       | integer    | null: false                          |
 | delivery_charge_id | integer    | null: false                          |
 | sender_id          | integer    | null: false                          |
-| number_of_days_id  | integer    | null: false                          |
+| number_of_day_id  | integer    | null: false                          |
 | price              | integer    | null: false                          |
 | user               | references | null: false , foreign_key: true      |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchase
+- belongs_to :card
 
 ## purchaseｓ テーブル
 
@@ -45,17 +45,17 @@
 | city_number      | string     | null: false                          |
 | building_name    | string     |                                      |
 | telephone_number | string     | null: false                          |
-| user             | references | null: false , foreign_key: true      |
-| item             | references | null: false , foreign_key: true      |
+| card             | references | null: false , foreign_key: true      |
 
 ### Association
-- belongs_to :item
 - belongs_to :card
 
-## card テーブル
+## cards テーブル
 | Column           | Type       | Options                                    |
 | ----------       | ---------- | -----------------------------------------  |
 | user             | references | null: false foreign_key: true              |
 | item             | references | null: false foreign_key: true              |
 
-- has_one :purchase
+- has_one :item
+- belongs_to :purchase
+- belongs_to :user
