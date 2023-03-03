@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="shl8meSrHxRGVKa_y6Je" name="ページ1">
-        <mxGraphModel dx="1306" dy="1802" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="1207" dy="1860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -59,12 +59,6 @@
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="350" y="480" as="sourcePoint"/>
                         <mxPoint x="487.1" y="617.3299999999999" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="40" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="490" y="150" as="sourcePoint"/>
-                        <mxPoint x="650" y="150" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="42" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.451;exitY=1.008;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="22" target="23">
