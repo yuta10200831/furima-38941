@@ -33,7 +33,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :card
+- has_one :card
 
 ## purchaseｓ テーブル
 
@@ -56,6 +56,6 @@
 | user             | references | null: false foreign_key: true              |
 | item             | references | null: false foreign_key: true              |
 
-- has_one :item
-- belongs_to :purchase
+- belongs_to :item
+- has_one :purchase
 - belongs_to :user
