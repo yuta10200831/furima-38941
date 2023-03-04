@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :family_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :birth_day, presence: true
-      
+
   has_many :items
   has_many :cards
 end
