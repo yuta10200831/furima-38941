@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   # itemテーブルvalidates
+  validates :image, presence: true
   validates :item_name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true
@@ -9,7 +10,7 @@ class Item < ApplicationRecord
   validates :delivery_charge_id, presence: true
   validates :sender_id, presence: true
   validates :number_of_day_id, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   belongs_to :user
   has_one_attached :image
@@ -22,11 +23,4 @@ class Item < ApplicationRecord
   belongs_to :sender
   belongs_to :situation
 
-  with_options numericality: { other_than: 0 } do
-    validates :category
-    validates :dlivery
-    validates :number_of_day
-    validates :sender
-    validates :situation
-  end
 end
