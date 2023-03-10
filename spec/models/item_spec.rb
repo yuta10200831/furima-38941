@@ -40,7 +40,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザー登録していないと出品できない' do
         @item.user_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank")
+        expect(@item.errors.full_messages).to include("User must exist")
       end
       it '画像がないと出品できない' do
         @item.image = nil
@@ -97,6 +97,37 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
+      it 'カテゴリーに(---)が選択されている場合は出品できない' do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
+      it '商品の状態に(---)が選択されている場合は出品できない' do
+        @item.situation_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Situation must be other than 0")
+      end
+        it '配送料に(---)が選択されている場合は出品できない' do
+        @item.delivery_charge_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery charge must be other than 0")
+      end
+      it '発送元地域に(---)が選択されている場合は出品できない' do
+        @item.sender_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Sender must be other than 0")
+      end
+      it '発送までの日数に(---)が選択されている場合は出品できない' do
+        @item.number_of_day_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Number of day must be other than 0")
+      end
+      it '価格は半角でないと登録出来ない' do
+      @item.price = '３００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+
     end
   end
 end
