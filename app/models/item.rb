@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   belongs_to :situation
 
   # ---が選択された時保存できないバリデーション
-  with_options numericality: { other_than: 0 } do
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :delivery_charge_id
     validates :number_of_day_id
