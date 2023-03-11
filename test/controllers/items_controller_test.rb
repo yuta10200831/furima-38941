@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  
+  private
+  
+  def item_params
+    params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+  end
+  
 end
