@@ -20,7 +20,7 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
     <%# /商品画像 %>
@@ -131,7 +131,7 @@ app/assets/stylesheets/items/new.css %>
       </p>
       <p class="sentence">
         また、出品をもちまして
-        <a href="#">加盟店規約</a>
+        <a href="#">加盟店規約</a>r
         に同意したことになります。
       </p>
     </div>
@@ -140,7 +140,7 @@ app/assets/stylesheets/items/new.css %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる', item_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
