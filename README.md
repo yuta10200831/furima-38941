@@ -35,7 +35,7 @@
 - belongs_to :user
 - has_one :card
 
-## purchaseｓ テーブル
+## purchases テーブル
 
 | Column           | Type       | Options                              |
 | ----------       | ---------- | ------------------------------       |
