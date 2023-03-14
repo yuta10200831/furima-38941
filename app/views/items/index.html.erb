@@ -152,7 +152,8 @@
         <% end %>
       </li>
     <% end %>
-
+    
+    <%# 商品がない状態だとダミーを表示する %>
     <% if @items.blank? then %>
       <li class='list'>
         <%= link_to '#' do %>
