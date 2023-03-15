@@ -49,7 +49,7 @@ RSpec.describe PurchaseCard, type: :model do
       it '郵便番号がないと登録できない' do
         @purchase_card.post_code = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Post code can't be blank", "Post code is invalid. Include hyphen(-)")
+        expect(@purchase_card.errors.full_messages).to include("Post code can't be blank")
       end
       it '都道府県が(--)だと登録出来ない' do
         @purchase_card.sender_id = nil

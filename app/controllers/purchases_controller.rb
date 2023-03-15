@@ -33,7 +33,7 @@ class PurchasesController < ApplicationController
 
   def purchased_item
     @item = Item.find(params[:item_id])
-    redirect_to root_path if current_user.id == @item.user_id || @item.card.present?
+    redirect_to new_user_session_path
   end
   
 end
