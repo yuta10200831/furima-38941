@@ -4,7 +4,9 @@ RSpec.describe PurchaseCard, type: :model do
 
   describe '配送先情報の保存' do
     before do
-      @purchase_card = FactoryBot.build(:purchase_card)
+      user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item)
+      @purchase_card = FactoryBot.build(:purchase_card, user_id: user.id, item_id: item.id)
     end
 
     context '配送先情報が保存される時' do
@@ -78,6 +80,11 @@ RSpec.describe PurchaseCard, type: :model do
       end
       it '電話番号が12桁以上だと登録できない' do
         @purchase_card.telephone_number = 12_132_345_554_765
+        @purchase_card.valid?
+        expect(@purchase_card.errors.full_messages).to include("Telephone number is invalid")
+      end
+      it '電話番号が9桁以下だと登録できない' do
+        @purchase_card.telephone_number = 12_132_345_5
         @purchase_card.valid?
         expect(@purchase_card.errors.full_messages).to include("Telephone number is invalid")
       end

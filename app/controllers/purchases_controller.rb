@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :purchased_item, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
   @purchase_card = PurchaseCard.new
@@ -33,7 +34,6 @@ class PurchasesController < ApplicationController
 
   def purchased_item
     @item = Item.find(params[:item_id])
-    redirect_to new_user_session_path
+    redirect_to root_path if current_user.id == @item.user_id || @item.order.present?
   end
-  
 end

@@ -7,7 +7,7 @@ class PurchaseCard
     validates :sender_id, numericality: { other_than: 0 }
     validates :city
     validates :city_number
-    validates :telephone_number, format: { with: /\A[0-9]{11}\z/ }
+    validates :telephone_number, format: { with: /\A\d{10,11}\z/ }
     validates :user_id
     validates :item_id
     validates :token
