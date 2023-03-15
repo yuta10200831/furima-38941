@@ -53,6 +53,11 @@ RSpec.describe PurchaseCard, type: :model do
         @purchase_card.valid?
         expect(@purchase_card.errors.full_messages).to include("Post code can't be blank")
       end
+      it '郵便番号にハイフンがないと登録出来ない' do
+        @purchase_card.post_code = '1000011'
+        @purchase_card.valid?
+        expect(@purchase_card.errors.full_messages).to include("Post code is invalid")
+      end
       it '都道府県が(--)だと登録出来ない' do
         @purchase_card.sender_id = nil
         @purchase_card.valid?
