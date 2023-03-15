@@ -1,14 +1,14 @@
 FactoryBot.define do
   factory :purchase_card do
 
-    post_card          { Faker::Number}
-    sender_id          { Faker::Number}
-    city               { Faker::Number}
-    city_number        { Faker::Number}
-    building_name      { Faker::Number}
-    telephone_number   { Faker::Number}
-    user_id            { Faker::Number}
-    item_id            { Faker::Number}
-
+    post_code          { Faker::Number.decimal_part(digits: 3) + '-' + Faker::Number.decimal_part(digits: 4) }
+    sender_id          { Faker::Number.between(from: 2, to: 47) }
+    city               { Faker::Address.city }
+    city_number        { Faker::Address.street_address }
+    building_name      { Faker::Address.street_address }
+    telephone_number   { Faker::Number.decimal_part(digits: 11) }
+    user_id            { Faker::Number.non_zero_digit }
+    item_id            { Faker::Number.non_zero_digit }
+    token              { Faker::Internet.password(min_length: 20, max_length:30) }
   end
 end

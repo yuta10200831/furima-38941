@@ -3,11 +3,11 @@ class PurchaseCard
   attr_accessor :user_id, :item_id, :post_code, :sender_id, :city, :city_number, :building_name, :telephone_number, :token
 
   with_options presence: true do
-    validates :post_code
-    validates :sender_id
+    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :sender_id, numericality: { other_than: 0 }
     validates :city
     validates :city_number
-    validates :telephone_number
+    validates :telephone_number, format: { with: /\A[0-9]{11}\z/ }
     validates :user_id
     validates :item_id
     validates :token

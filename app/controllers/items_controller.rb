@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user.id == current_user.id
+    if @item.user.id == current_user.id && @item.card.nil?
     else
       redirect_to root_path
     end
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   private
 
   def item_params

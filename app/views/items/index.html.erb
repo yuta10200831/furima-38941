@@ -133,9 +133,12 @@
         <%= link_to item_path(item) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" if item.image.attached? %>
+    <%# 購入商品との条件分岐 %>
+            <% if item.card %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
+            <% end %>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
