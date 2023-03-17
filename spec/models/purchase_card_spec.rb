@@ -51,62 +51,62 @@ RSpec.describe PurchaseCard, type: :model do
       it '郵便番号がないと登録できない' do
         @purchase_card.post_code = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Post code can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("郵便番号を入力してください")
       end
       it '郵便番号にハイフンがないと登録出来ない' do
         @purchase_card.post_code = '1000011'
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_card.errors.full_messages).to include("郵便番号は不正な値です")
       end
       it '都道府県が(--)だと登録出来ない' do
         @purchase_card.sender_id = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Sender can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("都道府県を入力してください")
       end
       it '市区町村が空だと登録できない' do
         @purchase_card.city = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("City can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("市区町村を入力してください")
       end
       it '番地が空だと登録できない' do
         @purchase_card.city_number = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("City number can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("番地を入力してください")
       end
       it '電話番号が空だと登録できない' do
         @purchase_card.telephone_number = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Telephone number can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("電話番号を入力してください")
       end
       it '電話番号にハイフンがあると登録できない' do
         @purchase_card.telephone_number = '123 - 2345 - 3456'
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchase_card.errors.full_messages).to include("電話番号は不正な値です")
       end
       it '電話番号が12桁以上だと登録できない' do
         @purchase_card.telephone_number = 12_132_345_554_765
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchase_card.errors.full_messages).to include("電話番号は不正な値です")
       end
       it '電話番号が9桁以下だと登録できない' do
         @purchase_card.telephone_number = 12_132_345_5
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchase_card.errors.full_messages).to include("電話番号は不正な値です")
       end
       it 'トークンが空だと登録できない' do
         @purchase_card.token = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Token can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("カード情報を入力してください")
       end
       it 'user_idが空だと登録できない' do
         @purchase_card.user_id = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("User can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("Userを入力してください")
       end
       it 'item_idが空だと登録できない' do
         @purchase_card.item_id = nil
         @purchase_card.valid?
-        expect(@purchase_card.errors.full_messages).to include("Item can't be blank")
+        expect(@purchase_card.errors.full_messages).to include("Itemを入力してください")
       end
     end
   end

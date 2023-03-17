@@ -24,7 +24,7 @@ class Item < ApplicationRecord
   belongs_to :situation
 
   # ---が選択された時保存できないバリデーション
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1 ,message: 'を選択してください' } do
     validates :category_id
     validates :delivery_charge_id
     validates :number_of_day_id
