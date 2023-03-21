@@ -210,7 +210,6 @@
   align-items: center;
 }
 
-
 .items-sell-footer>.menu {
   display: flex;
   flex-wrap: wrap;
@@ -226,4 +225,9 @@
 
 .inc {
   font-size: 13px;
+}
+
+.preview-image {
+  height: 200px;
+  width: 200px;
 }

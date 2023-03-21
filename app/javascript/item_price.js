@@ -1,15 +1,3 @@
-// 販売価格の自動計算
-window.addEventListener('load', () => {
-  const priceInput = document.getElementById("item-price");
-  priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;
-    const addTaxDom = document.getElementById("add-tax-price");
-    const ProfitDom = document.getElementById("profit");
-    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-    ProfitDom.innerHTML = inputValue - addTaxDom.innerHTML;
-  })
-});
-
 // プレビュー表示の設定
 document.addEventListener('DOMContentLoaded', function(){
   // 新規投稿・編集ページのフォームを取得
@@ -42,4 +30,16 @@ document.addEventListener('DOMContentLoaded', function(){
     previewWrapper.appendChild(previewImage);
     previewList.appendChild(previewWrapper);
   });
+});
+
+// 販売価格の自動計算
+window.addEventListener('load', () => {
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+    const addTaxDom = document.getElementById("add-tax-price");
+    const ProfitDom = document.getElementById("profit");
+    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+    ProfitDom.innerHTML = inputValue - addTaxDom.innerHTML;
+  })
 });
